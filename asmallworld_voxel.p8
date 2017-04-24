@@ -41,7 +41,7 @@ function destroymap()
 
 	--destroy left wall
 	if(not canmove(false))then
-
+		mset(flr((p.x-1)/8), flr((p.y)/8),112)
 	end
 end
 
@@ -175,7 +175,7 @@ end
 function endlevel()
 	--todo:play a cutscene
 	r=mget(flr((p.x+8)/8), flr((p.y)/8))
-	l=mget(flr((p.x-1)/8), flr((p.y-4)/8))
+	l=mget(flr((p.x-1)/8), flr((p.y)/8))
 	if(fget(r,7) or fget(l,7))then
 		reload(0x2000, 0x2000, 0x1000)
 		screen=1
