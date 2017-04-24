@@ -33,10 +33,27 @@ function update_title_screen()
  cama=cama+0.01
 end
 
+function destroymap()
+	--destroy right wall
+	if(not canmove(true))then
+		mset(flr((p.x+8)/8), flr((p.y)/8),112)
+	end
+
+	--destroy left wall
+	if(not canmove(false))then
+
+	end
+end
+
 function moveplayer()
 	b0=btn(0)
  b1=btn(1)
- b2=btn(2)
+ b2=btn(2)or btn(4)
+ b3=btn(5)
+
+ if(b3)then
+ 	destroymap()
+ end
  
  p.x=(p.x+128)%128 --no bounds left and right
  p.clock+=1 --increment state clock
